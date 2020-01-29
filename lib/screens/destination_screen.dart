@@ -31,11 +31,14 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     )
                   ],
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image(
-                    image: AssetImage(widget.destination.imageUrl),
-                    fit: BoxFit.cover,
+                child: Hero(
+                  tag: widget.destination.imageUrl,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Image(
+                      image: AssetImage(widget.destination.imageUrl),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -68,6 +71,52 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       ],
                     )
                   ],
+                ),
+              ),
+              Positioned(
+                bottom: 20.0,
+                left: 20.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      widget.destination.city,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          FontAwesomeIcons.locationArrow,
+                          size: 15.0,
+                          color: Colors.white70,
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          widget.destination.country,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Positioned(
+                bottom: 20.0,
+                right: 20.0,
+                child: Icon(
+                  Icons.location_on,
+                  color: Colors.white70,
+                  size: 25.0,
                 ),
               )
             ],
